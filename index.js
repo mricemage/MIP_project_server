@@ -4,6 +4,8 @@ var cors = require('cors')
  
 app.use(cors());
 
+app.set('port', (process.env.PORT || 3000)); // Heroku se tu can chinh port de chay binh thuong
+
 var posts = [
     { //bai post dau tien gom 2 comment cua user 2 va 3
         id: 0,
@@ -77,6 +79,6 @@ app.get('/posts', function (req, res) {
 
 
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+app.listen(app.get('port'), function() {
+    console.log('Fake Instagram-server is running');
+}); 
